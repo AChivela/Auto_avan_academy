@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Avan Academy - Formação Profissional Online</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .progress-bar {
+            background: linear-gradient(90deg, #10b981, #34d399);
+        }
+        
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-graduation-cap text-white text-lg"></i>
+                        </div>
+                        <span class="text-xl font-bold text-gray-900">Auto Avan Academy</span>
+                    </div>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 font-medium" onclick="showSection('home')">Início</a>
+                        <a href="#" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 font-medium" onclick="showSection('courses')">Cursos</a>
+                        <a href="#" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 font-medium" onclick="showSection('student')">Área do Aluno</a>
+                        <a href="#" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 font-medium" onclick="showSection('instructor')">Instrutores</a>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg font-medium hover:bg-gray-200 transition-colors">
+                        Entrar
+                    </button>
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                        Registar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section-content">
+        <!-- Hero Section -->
+        <div class="hero-gradient min-h-screen flex items-center pt-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="text-white">
+                        <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                            Domine a Arte da
+                            <span class="text-yellow-300">Mecânica Automóvel</span>
+                        </h1>
+                        <p class="text-xl mb-8 text-blue-100 leading-relaxed">
+                            Formação profissional especializada em mecânica automóvel. Aprenda com mecânicos experientes e torne-se um especialista certificado na reparação e manutenção de veículos.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button class="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-300 transition-colors">
+                                Começar Agora - Grátis
+                            </button>
+                            <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors">
+                                Explorar Cursos
+                            </button>
+                        </div>
+                        <div class="mt-12 grid grid-cols-3 gap-8">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold">2K+</div>
+                                <div class="text-blue-200">Mecânicos Formados</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold">50+</div>
+                                <div class="text-blue-200">Cursos Técnicos</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold">98%</div>
+                                <div class="text-blue-200">Taxa de Emprego</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative">
+                        <div class="floating-animation">
+                            <div class="bg-white rounded-2xl p-8 shadow-2xl">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mr-4">
+                                        <i class="fas fa-play text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-900">Aula em Direto</h3>
+                                        <p class="text-gray-600">Diagnóstico de Motor</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-100 rounded-lg h-32 mb-4 flex items-center justify-center">
+                                    <i class="fas fa-video text-4xl text-gray-400"></i>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-600">156 participantes</span>
+                                    <div class="flex space-x-2">
+                                        <div class="w-8 h-8 bg-blue-500 rounded-full"></div>
+                                        <div class="w-8 h-8 bg-green-500 rounded-full"></div>
+                                        <div class="w-8 h-8 bg-purple-500 rounded-full"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Porquê Escolher a Auto Avan Academy?</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Oferecemos uma experiência de aprendizagem única, combinando tecnologia de ponta com metodologias pedagógicas comprovadas.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center p-8 rounded-xl hover:shadow-lg transition-shadow">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-certificate text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Certificações Reconhecidas</h3>
+                        <p class="text-gray-600">Obtenha certificados digitais válidos e reconhecidos pela indústria para impulsionar a sua carreira.</p>
+                    </div>
+                    
+                    <div class="text-center p-8 rounded-xl hover:shadow-lg transition-shadow">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-users text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Comunidade Ativa</h3>
+                        <p class="text-gray-600">Conecte-se com outros profissionais, participe em fóruns e construa a sua rede de contactos.</p>
+                    </div>
+                    
+                    <div class="text-center p-8 rounded-xl hover:shadow-lg transition-shadow">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-mobile-alt text-2xl text-purple-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Aprenda em Qualquer Lugar</h3>
+                        <p class="text-gray-600">Plataforma totalmente responsiva. Estude no computador, tablet ou telemóvel, quando e onde quiser.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="section-content hidden">
+        <div class="pt-24 pb-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl font-bold text-gray-900 mb-4">Catálogo de Cursos</h1>
+                    <p class="text-xl text-gray-600">Explore os nossos cursos organizados por área de especialização</p>
+                </div>
+
+                <!-- Course Categories -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <button class="category-btn bg-blue-600 text-white px-6 py-3 rounded-full font-medium" onclick="filterCourses('all')">
+                        Todos os Cursos
+                    </button>
+                    <button class="category-btn bg-white text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-100" onclick="filterCourses('motor')">
+                        Motor
+                    </button>
+                    <button class="category-btn bg-white text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-100" onclick="filterCourses('eletrica')">
+                        Elétrica
+                    </button>
+                    <button class="category-btn bg-white text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-100" onclick="filterCourses('chassis')">
+                        Chassis
+                    </button>
+                    <button class="category-btn bg-white text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-100" onclick="filterCourses('diagnostico')">
+                        Diagnóstico
+                    </button>
+                </div>
+
+                <!-- Course Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="courseGrid">
+                    <!-- Course Cards will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Area -->
+    <section id="student" class="section-content hidden">
+        <div class="pt-24 pb-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-8">
+                    <h1 class="text-4xl font-bold text-gray-900 mb-2">Área do Aluno</h1>
+                    <p class="text-gray-600">Bem-vindo de volta, João! Continue a sua jornada de aprendizagem.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Progress Overview -->
+                    <div class="lg:col-span-2">
+                        <div class="bg-white rounded-xl shadow-sm p-8 mb-8">
+                            <h2 class="text-2xl font-semibold mb-6">Progresso Atual</h2>
+                            <div class="space-y-6">
+                                <div>
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="font-medium">Mecânica de Motor Completa</span>
+                                        <span class="text-sm text-gray-600">75%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-3">
+                                        <div class="progress-bar h-3 rounded-full" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="font-medium">Sistemas Elétricos Automóveis</span>
+                                        <span class="text-sm text-gray-600">45%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-3">
+                                        <div class="progress-bar h-3 rounded-full" style="width: 45%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="font-medium">Diagnóstico por Computador</span>
+                                        <span class="text-sm text-gray-600">90%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-3">
+                                        <div class="progress-bar h-3 rounded-full" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Activity -->
+                        <div class="bg-white rounded-xl shadow-sm p-8">
+                            <h2 class="text-2xl font-semibold mb-6">Atividade Recente</h2>
+                            <div class="space-y-4">
+                                <div class="flex items-center p-4 bg-gray-50 rounded-lg">
+                                    <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center mr-4">
+                                        <i class="fas fa-check text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">Completou: "Diagnóstico de Injetores"</p>
+                                        <p class="text-sm text-gray-600">Há 2 horas</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-4 bg-gray-50 rounded-lg">
+                                    <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center mr-4">
+                                        <i class="fas fa-comment text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">Nova mensagem no fórum</p>
+                                        <p class="text-sm text-gray-600">Há 1 dia</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-4 bg-gray-50 rounded-lg">
+                                    <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center mr-4">
+                                        <i class="fas fa-certificate text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">Certificado obtido!</p>
+                                        <p class="text-sm text-gray-600">Há 3 dias</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="space-y-8">
+                        <!-- Quick Stats -->
+                        <div class="bg-white rounded-xl shadow-sm p-6">
+                            <h3 class="text-lg font-semibold mb-4">Estatísticas</h3>
+                            <div class="space-y-4">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Cursos Inscritos</span>
+                                    <span class="font-semibold">8</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Cursos Completos</span>
+                                    <span class="font-semibold">3</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Certificados</span>
+                                    <span class="font-semibold">3</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Horas de Estudo</span>
+                                    <span class="font-semibold">127h</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Certificates -->
+                        <div class="bg-white rounded-xl shadow-sm p-6">
+                            <h3 class="text-lg font-semibold mb-4">Certificados Digitais</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center p-3 border border-gray-200 rounded-lg">
+                                    <i class="fas fa-award text-yellow-500 mr-3"></i>
+                                    <div>
+                                        <p class="font-medium text-sm">Mecânica de Motor</p>
+                                        <p class="text-xs text-gray-600">Emitido em 15/03/2024</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-3 border border-gray-200 rounded-lg">
+                                    <i class="fas fa-award text-yellow-500 mr-3"></i>
+                                    <div>
+                                        <p class="font-medium text-sm">Sistemas Elétricos</p>
+                                        <p class="text-xs text-gray-600">Emitido em 10/03/2024</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="w-full mt-4 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                Ver Todos
+                            </button>
+                        </div>
+
+                        <!-- Forum Activity -->
+                        <div class="bg-white rounded-xl shadow-sm p-6">
+                            <h3 class="text-lg font-semibold mb-4">Fórum de Discussão</h3>
+                            <div class="space-y-3">
+                                <div class="p-3 bg-gray-50 rounded-lg">
+                                    <p class="text-sm font-medium">Problema no sistema de injeção</p>
+                                    <p class="text-xs text-gray-600">3 respostas • Há 2h</p>
+                                </div>
+                                <div class="p-3 bg-gray-50 rounded-lg">
+                                    <p class="text-sm font-medium">Diagnóstico de alternador</p>
+                                    <p class="text-xs text-gray-600">7 respostas • Há 1d</p>
+                                </div>
+                            </div>
+                            <button class="w-full mt-4 border border-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-50 transition-colors">
+                                Ir para Fórum
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructor Area -->
+    <section id="instructor" class="section-content hidden">
+        <div class="pt-24 pb-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-8">
+                    <h1 class="text-4xl font-bold text-gray-900 mb-2">Área do Instrutor</h1>
+                    <p class="text-gray-600">Gerencie os seus cursos e acompanhe o progresso dos alunos.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                    <!-- Sidebar -->
+                    <div class="lg:col-span-1">
+                        <div class="bg-white rounded-xl shadow-sm p-6">
+                            <div class="text-center mb-6">
+                                <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-user text-2xl text-white"></i>
+                                </div>
+                                <h3 class="font-semibold">Mestre João Santos</h3>
+                                <p class="text-sm text-gray-600">Mecânico Especialista - 25 anos</p>
+                            </div>
+                            
+                            <nav class="space-y-2">
+                                <a href="#" class="instructor-nav-link flex items-center p-3 text-blue-600 bg-blue-50 rounded-lg" onclick="showInstructorSection('dashboard')">
+                                    <i class="fas fa-chart-bar mr-3"></i>
+                                    Dashboard
+                                </a>
+                                <a href="#" class="instructor-nav-link flex items-center p-3 text-gray-700 hover:bg-gray-50 rounded-lg" onclick="showInstructorSection('courses')">
+                                    <i class="fas fa-book mr-3"></i>
+                                    Meus Cursos
+                                </a>
+                                <a href="#" class="instructor-nav-link flex items-center p-3 text-gray-700 hover:bg-gray-50 rounded-lg" onclick="showInstructorSection('students')">
+                                    <i class="fas fa-users mr-3"></i>
+                                    Alunos
+                                </a>
+                                <a href="#" class="instructor-nav-link flex items-center p-3 text-gray-700 hover:bg-gray-50 rounded-lg" onclick="showInstructorSection('upload')">
+                                    <i class="fas fa-upload mr-3"></i>
+                                    Upload Conteúdo
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <!-- Main Content -->
+                    <div class="lg:col-span-3">
+                        <!-- Dashboard -->
+                        <div id="instructor-dashboard" class="instructor-section">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                                <div class="bg-white rounded-xl shadow-sm p-6">
+                                    <div class="flex items-center">
+                                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                                            <i class="fas fa-users text-blue-600"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-2xl font-bold">347</p>
+                                            <p class="text-gray-600">Mecânicos Formados</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white rounded-xl shadow-sm p-6">
+                                    <div class="flex items-center">
+                                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                                            <i class="fas fa-book text-green-600"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-2xl font-bold">12</p>
+                                            <p class="text-gray-600">Cursos Ativos</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white rounded-xl shadow-sm p-6">
+                                    <div class="flex items-center">
+                                        <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mr-4">
+                                            <i class="fas fa-star text-yellow-600"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-2xl font-bold">4.8</p>
+                                            <p class="text-gray-600">Avaliação Média</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-xl shadow-sm p-8">
+                                <h2 class="text-2xl font-semibold mb-6">Atividade Recente</h2>
+                                <div class="space-y-4">
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg">
+                                        <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center mr-4">
+                                            <i class="fas fa-user-plus text-white"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium">15 novos alunos inscritos</p>
+                                            <p class="text-sm text-gray-600">Marketing Digital Avançado</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg">
+                                        <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center mr-4">
+                                            <i class="fas fa-video text-white"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium">Nova aula publicada</p>
+                                            <p class="text-sm text-gray-600">SEO para E-commerce</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- My Courses -->
+                        <div id="instructor-courses" class="instructor-section hidden">
+                            <div class="bg-white rounded-xl shadow-sm p-8">
+                                <div class="flex justify-between items-center mb-6">
+                                    <h2 class="text-2xl font-semibold">Meus Cursos</h2>
+                                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                        <i class="fas fa-plus mr-2"></i>Novo Curso
+                                    </button>
+                                </div>
+                                
+                                <div class="space-y-4">
+                                    <div class="border border-gray-200 rounded-lg p-6">
+                                        <div class="flex justify-between items-start">
+                                            <div>
+                                                <h3 class="text-lg font-semibold mb-2">Mecânica de Motor Completa</h3>
+                                                <p class="text-gray-600 mb-4">Curso abrangente sobre diagnóstico, reparação e manutenção de motores</p>
+                                                <div class="flex items-center space-x-4 text-sm text-gray-600">
+                                                    <span><i class="fas fa-users mr-1"></i>124 alunos</span>
+                                                    <span><i class="fas fa-star mr-1"></i>4.9 (45 avaliações)</span>
+                                                    <span><i class="fas fa-clock mr-1"></i>24h 30min</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex space-x-2">
+                                                <button class="text-blue-600 hover:text-blue-800">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="text-green-600 hover:text-green-800">
+                                                    <i class="fas fa-chart-line"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="border border-gray-200 rounded-lg p-6">
+                                        <div class="flex justify-between items-start">
+                                            <div>
+                                                <h3 class="text-lg font-semibold mb-2">Sistemas Elétricos Automóveis</h3>
+                                                <p class="text-gray-600 mb-4">Diagnóstico e reparação de sistemas elétricos modernos</p>
+                                                <div class="flex items-center space-x-4 text-sm text-gray-600">
+                                                    <span><i class="fas fa-users mr-1"></i>89 alunos</span>
+                                                    <span><i class="fas fa-star mr-1"></i>4.8 (28 avaliações)</span>
+                                                    <span><i class="fas fa-clock mr-1"></i>18h 15min</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex space-x-2">
+                                                <button class="text-blue-600 hover:text-blue-800">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="text-green-600 hover:text-green-800">
+                                                    <i class="fas fa-chart-line"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Students -->
+                        <div id="instructor-students" class="instructor-section hidden">
+                            <div class="bg-white rounded-xl shadow-sm p-8">
+                                <h2 class="text-2xl font-semibold mb-6">Gestão de Alunos</h2>
+                                
+                                <div class="mb-6">
+                                    <input type="text" placeholder="Pesquisar alunos..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                </div>
+                                
+                                <div class="overflow-x-auto">
+                                    <table class="w-full">
+                                        <thead class="bg-gray-50">
+                                            <tr>
+                                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aluno</th>
+                                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Curso</th>
+                                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Progresso</th>
+                                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Última Atividade</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="bg-white divide-y divide-gray-200">
+                                            <tr>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="flex items-center">
+                                                        <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center mr-3">
+                                                            <span class="text-white font-medium">JS</span>
+                                                        </div>
+                                                        <div>
+                                                            <div class="text-sm font-medium text-gray-900">João Silva</div>
+                                                            <div class="text-sm text-gray-500">joao@email.com</div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Mecânica de Motor</td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="flex items-center">
+                                                        <div class="w-16 bg-gray-200 rounded-full h-2 mr-2">
+                                                            <div class="bg-green-500 h-2 rounded-full" style="width: 75%"></div>
+                                                        </div>
+                                                        <span class="text-sm text-gray-600">75%</span>
+                                                    </div>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Há 2 horas</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="flex items-center">
+                                                        <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center mr-3">
+                                                            <span class="text-white font-medium">AS</span>
+                                                        </div>
+                                                        <div>
+                                                            <div class="text-sm font-medium text-gray-900">Ana Santos</div>
+                                                            <div class="text-sm text-gray-500">ana@email.com</div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Sistemas Elétricos</td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="flex items-center">
+                                                        <div class="w-16 bg-gray-200 rounded-full h-2 mr-2">
+                                                            <div class="bg-green-500 h-2 rounded-full" style="width: 45%"></div>
+                                                        </div>
+                                                        <span class="text-sm text-gray-600">45%</span>
+                                                    </div>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Há 1 dia</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Upload Content -->
+                        <div id="instructor-upload" class="instructor-section hidden">
+                            <div class="bg-white rounded-xl shadow-sm p-8">
+                                <h2 class="text-2xl font-semibold mb-6">Upload de Conteúdo</h2>
+                                
+                                <div class="space-y-6">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Título da Aula</label>
+                                        <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Ex: Introdução ao Google Ads">
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Descrição</label>
+                                        <textarea rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Descreva o conteúdo da aula..."></textarea>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Curso</label>
+                                        <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                            <option>Selecione um curso</option>
+                                            <option>Marketing Digital Completo</option>
+                                            <option>SEO Avançado</option>
+                                            <option>Google Ads Masterclass</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Upload de Vídeo</label>
+                                        <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-blue-400 transition-colors">
+                                            <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-4"></i>
+                                            <p class="text-gray-600 mb-2">Arraste o ficheiro de vídeo aqui ou</p>
+                                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                                Selecionar Ficheiro
+                                            </button>
+                                            <p class="text-sm text-gray-500 mt-2">Formatos suportados: MP4, MOV, AVI (máx. 2GB)</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex space-x-4">
+                                        <button class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                                            <i class="fas fa-upload mr-2"></i>Publicar Aula
+                                        </button>
+                                        <button class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors">
+                                            Guardar Rascunho
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Course data
+        const courses = [
+            {
+                id: 1,
+                title: "Mecânica de Motor Completa",
+                description: "Domine todos os sistemas do motor: diagnóstico, reparação e manutenção",
+                category: "motor",
+                price: "€299",
+                rating: 4.9,
+                students: 347,
+                duration: "24h 30min",
+                image: "🔧"
+            },
+            {
+                id: 2,
+                title: "Sistemas Elétricos Automóveis",
+                description: "Aprenda a diagnosticar e reparar sistemas elétricos modernos",
+                category: "eletrica",
+                price: "€249",
+                rating: 4.8,
+                students: 256,
+                duration: "18h 15min",
+                image: "⚡"
+            },
+            {
+                id: 3,
+                title: "Travões e Suspensão",
+                description: "Especialização em sistemas de travagem e suspensão",
+                category: "chassis",
+                price: "€199",
+                rating: 4.7,
+                students: 184,
+                duration: "16h 45min",
+                image: "🛞"
+            },
+            {
+                id: 4,
+                title: "Ar Condicionado Automóvel",
+                description: "Manutenção e reparação de sistemas de climatização",
+                category: "climatizacao",
+                price: "€179",
+                rating: 4.6,
+                students: 123,
+                duration: "12h 20min",
+                image: "❄️"
+            },
+            {
+                id: 5,
+                title: "Diagnóstico por Computador",
+                description: "Utilização de equipamentos de diagnóstico modernos",
+                category: "diagnostico",
+                price: "€329",
+                rating: 4.9,
+                students: 298,
+                duration: "20h 30min",
+                image: "💻"
+            },
+            {
+                id: 6,
+                title: "Transmissão e Caixa de Velocidades",
+                description: "Reparação de transmissões manuais e automáticas",
+                category: "transmissao",
+                price: "€279",
+                rating: 4.8,
+                students: 167,
+                duration: "22h 10min",
+                image: "⚙️"
+            }
+        ];
+
+        // Navigation functions
+        function showSection(sectionName) {
+            // Hide all sections
+            document.querySelectorAll('.section-content').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionName).classList.remove('hidden');
+            
+            // Update navigation active state
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('text-blue-600');
+                link.classList.add('text-gray-700');
+            });
+            
+            event.target.classList.remove('text-gray-700');
+            event.target.classList.add('text-blue-600');
+            
+            // Load courses if courses section is selected
+            if (sectionName === 'courses') {
+                loadCourses();
+            }
+        }
+
+        // Course functions
+        function loadCourses() {
+            const courseGrid = document.getElementById('courseGrid');
+            courseGrid.innerHTML = '';
+            
+            courses.forEach(course => {
+                const courseCard = createCourseCard(course);
+                courseGrid.appendChild(courseCard);
+            });
+        }
+
+        function createCourseCard(course) {
+            const card = document.createElement('div');
+            card.className = 'bg-white rounded-xl shadow-sm card-hover overflow-hidden course-card';
+            card.dataset.category = course.category;
+            
+            card.innerHTML = `
+                <div class="p-6">
+                    <div class="text-4xl mb-4">${course.image}</div>
+                    <h3 class="text-xl font-semibold mb-2">${course.title}</h3>
+                    <p class="text-gray-600 mb-4">${course.description}</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-4 text-sm text-gray-600">
+                            <span><i class="fas fa-star text-yellow-400"></i> ${course.rating}</span>
+                            <span><i class="fas fa-users"></i> ${course.students}</span>
+                            <span><i class="fas fa-clock"></i> ${course.duration}</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-2xl font-bold text-blue-600">${course.price}</span>
+                        <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                            Inscrever-se
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        function filterCourses(category) {
+            const courseCards = document.querySelectorAll('.course-card');
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            
+            // Update button states
+            categoryButtons.forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white');
+                btn.classList.add('bg-white', 'text-gray-700');
+            });
+            
+            event.target.classList.remove('bg-white', 'text-gray-700');
+            event.target.classList.add('bg-blue-600', 'text-white');
+            
+            // Filter courses
+            courseCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                    card.classList.add('fade-in');
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Instructor area functions
+        function showInstructorSection(sectionName) {
+            // Hide all instructor sections
+            document.querySelectorAll('.instructor-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show selected section
+            document.getElementById(`instructor-${sectionName}`).classList.remove('hidden');
+            
+            // Update navigation active state
+            document.querySelectorAll('.instructor-nav-link').forEach(link => {
+                link.classList.remove('text-blue-600', 'bg-blue-50');
+                link.classList.add('text-gray-700');
+            });
+            
+            event.target.classList.remove('text-gray-700');
+            event.target.classList.add('text-blue-600', 'bg-blue-50');
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show home section by default
+            showSection('home');
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'980bbbce0536c6ea',t:'MTc1ODE0NDkyOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
