@@ -56,27 +56,62 @@
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
                     <div class="flex-shrink-0 flex items-center">
-                        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
-                            <i class="fas fa-graduation-cap text-white text-lg"></i>
+                        <div class="w-8 h-8 lg:w-10 lg:h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-2 lg:mr-3">
+                            <i class="fas fa-graduation-cap text-white text-sm lg:text-lg"></i>
                         </div>
-                        <span class="text-xl font-bold text-gray-900">Auto Avan Academy</span>
+                        <span class="text-lg lg:text-xl font-bold text-gray-900">Auto Avan Academy</span>
                     </div>
                 </div>
                 
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button class="text-gray-700 hover:text-blue-600 p-2" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-xl" id="mobile-menu-icon"></i>
+                    </button>
+                </div>
+                
+                <!-- Desktop Navigation -->
                 <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 font-medium" onclick="showSection('home')">Início</a>
-                        <a href="#" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 font-medium" onclick="showSection('courses')">Cursos</a>
-                        <a href="#" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 font-medium" onclick="showSection('student')">Área do Aluno</a>
-                        <a href="#" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 font-medium" onclick="showSection('instructor')">Instrutores</a>
+                    <div class="ml-10 flex items-baseline space-x-4 lg:space-x-8">
+                        <a href="#" class="nav-link text-gray-700 hover:text-blue-600 px-2 lg:px-3 py-2 font-medium text-sm lg:text-base" onclick="showSection('home')">Início</a>
+                        <a href="#" class="nav-link text-gray-700 hover:text-blue-600 px-2 lg:px-3 py-2 font-medium text-sm lg:text-base" onclick="showSection('courses')">Cursos</a>
+                        <a href="#" class="nav-link text-gray-700 hover:text-blue-600 px-2 lg:px-3 py-2 font-medium text-sm lg:text-base" onclick="showSection('student')">Área do Aluno</a>
+                        <a href="#" class="nav-link text-gray-700 hover:text-blue-600 px-2 lg:px-3 py-2 font-medium text-sm lg:text-base" onclick="showSection('instructor')">Instrutores</a>
                     </div>
                 </div>
                 
-                <div class="flex items-center space-x-4">
-                    <button class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg font-medium hover:bg-gray-200 transition-colors" onclick="showSection('login')">
+                <!-- Desktop Auth Buttons -->
+                <div class="hidden md:flex items-center space-x-2 lg:space-x-4">
+                    <button class="bg-gray-100 text-gray-700 px-3 lg:px-4 py-2 rounded-lg font-medium hover:bg-gray-200 transition-colors text-sm lg:text-base" onclick="showSection('login')">
                         Entrar
                     </button>
-                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors" onclick="showSection('register')">
+                    <button class="bg-blue-600 text-white px-3 lg:px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm lg:text-base" onclick="showSection('register')">
+                        Registar
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
+                <a href="#" class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md font-medium" onclick="showSection('home'); toggleMobileMenu()">
+                    <i class="fas fa-home mr-2"></i>Início
+                </a>
+                <a href="#" class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md font-medium" onclick="showSection('courses'); toggleMobileMenu()">
+                    <i class="fas fa-book mr-2"></i>Cursos
+                </a>
+                <a href="#" class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md font-medium" onclick="showSection('student'); toggleMobileMenu()">
+                    <i class="fas fa-user-graduate mr-2"></i>Área do Aluno
+                </a>
+                <a href="#" class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md font-medium" onclick="showSection('instructor'); toggleMobileMenu()">
+                    <i class="fas fa-chalkboard-teacher mr-2"></i>Instrutores
+                </a>
+                <div class="border-t border-gray-200 pt-3 mt-3">
+                    <button class="w-full bg-gray-100 text-gray-700 px-3 py-2 rounded-lg font-medium hover:bg-gray-200 transition-colors mb-2" onclick="showSection('login'); toggleMobileMenu()">
+                        Entrar
+                    </button>
+                    <button class="w-full bg-blue-600 text-white px-3 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors" onclick="showSection('register'); toggleMobileMenu()">
                         Registar
                     </button>
                 </div>
@@ -91,12 +126,13 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div class="text-white">
-                        <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                        <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
                             Domine a Arte da
                             <span class="text-yellow-300">Mecânica Automóvel</span>
+                            <span class="block text-3xl lg:text-4xl mt-2">em Luanda</span>
                         </h1>
-                        <p class="text-xl mb-8 text-blue-100 leading-relaxed">
-                            Formação profissional especializada em mecânica automóvel. Aprenda com mecânicos experientes e torne-se um especialista certificado na reparação e manutenção de veículos.
+                        <p class="text-lg lg:text-xl mb-8 text-blue-100 leading-relaxed">
+                            Formação profissional especializada em mecânica automóvel para Angola. Aprenda com mecânicos experientes de Luanda e torne-se um especialista certificado na reparação e manutenção de veículos.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4">
                             <button class="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-300 transition-colors">
@@ -644,107 +680,148 @@
 
     <!-- Instructor Area -->
     <section id="instructor" class="section-content hidden">
-        <div class="pt-24 pb-20 bg-gray-50">
+        <div class="pt-20 pb-20 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="mb-8">
-                    <h1 class="text-4xl font-bold text-gray-900 mb-2">Área do Instrutor</h1>
-                    <p class="text-gray-600">Gerencie os seus cursos e acompanhe o progresso dos alunos.</p>
+                <!-- Mobile Header -->
+                <div class="mb-6 md:mb-8">
+                    <h1 class="text-2xl md:text-4xl font-bold text-gray-900 mb-2">Área do Instrutor</h1>
+                    <p class="text-gray-600 text-sm md:text-base">Gerencie os seus cursos e acompanhe o progresso dos alunos em Luanda.</p>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-                    <!-- Sidebar -->
-                    <div class="lg:col-span-1">
-                        <div class="bg-white rounded-xl shadow-sm p-6">
+                <!-- Mobile Navigation Tabs -->
+                <div class="block lg:hidden mb-6">
+                    <div class="bg-white rounded-lg shadow-sm p-2">
+                        <div class="grid grid-cols-2 gap-2">
+                            <button class="instructor-mobile-nav bg-blue-600 text-white px-3 py-2 rounded-md text-sm font-medium" onclick="showInstructorSection('dashboard')">
+                                <i class="fas fa-chart-bar mr-1"></i>Dashboard
+                            </button>
+                            <button class="instructor-mobile-nav text-gray-700 px-3 py-2 rounded-md text-sm font-medium" onclick="showInstructorSection('courses')">
+                                <i class="fas fa-book mr-1"></i>Cursos
+                            </button>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 mt-2">
+                            <button class="instructor-mobile-nav text-gray-700 px-3 py-2 rounded-md text-sm font-medium" onclick="showInstructorSection('students')">
+                                <i class="fas fa-users mr-1"></i>Alunos
+                            </button>
+                            <button class="instructor-mobile-nav text-gray-700 px-3 py-2 rounded-md text-sm font-medium" onclick="showInstructorSection('upload')">
+                                <i class="fas fa-upload mr-1"></i>Upload
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8">
+                    <!-- Desktop Sidebar -->
+                    <div class="hidden lg:block lg:col-span-1">
+                        <div class="bg-white rounded-xl shadow-sm p-6 sticky top-24">
                             <div class="text-center mb-6">
                                 <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                                     <i class="fas fa-user text-2xl text-white"></i>
                                 </div>
-                                <h3 class="font-semibold">Mestre João Santos</h3>
-                                <p class="text-sm text-gray-600">Mecânico Especialista - 25 anos</p>
+                                <h3 class="font-semibold">Mestre António Silva</h3>
+                                <p class="text-sm text-gray-600">Mecânico Especialista - Luanda</p>
+                                <p class="text-xs text-gray-500">25 anos de experiência</p>
                             </div>
                             
                             <nav class="space-y-2">
-                                <a href="#" class="instructor-nav-link flex items-center p-3 text-blue-600 bg-blue-50 rounded-lg" onclick="showInstructorSection('dashboard')">
+                                <a href="#" class="instructor-nav-link flex items-center p-3 text-blue-600 bg-blue-50 rounded-lg transition-colors" onclick="showInstructorSection('dashboard')">
                                     <i class="fas fa-chart-bar mr-3"></i>
                                     Dashboard
                                 </a>
-                                <a href="#" class="instructor-nav-link flex items-center p-3 text-gray-700 hover:bg-gray-50 rounded-lg" onclick="showInstructorSection('courses')">
+                                <a href="#" class="instructor-nav-link flex items-center p-3 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors" onclick="showInstructorSection('courses')">
                                     <i class="fas fa-book mr-3"></i>
                                     Meus Cursos
                                 </a>
-                                <a href="#" class="instructor-nav-link flex items-center p-3 text-gray-700 hover:bg-gray-50 rounded-lg" onclick="showInstructorSection('students')">
+                                <a href="#" class="instructor-nav-link flex items-center p-3 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors" onclick="showInstructorSection('students')">
                                     <i class="fas fa-users mr-3"></i>
                                     Alunos
                                 </a>
-                                <a href="#" class="instructor-nav-link flex items-center p-3 text-gray-700 hover:bg-gray-50 rounded-lg" onclick="showInstructorSection('upload')">
+                                <a href="#" class="instructor-nav-link flex items-center p-3 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors" onclick="showInstructorSection('upload')">
                                     <i class="fas fa-upload mr-3"></i>
                                     Upload Conteúdo
+                                </a>
+                                <a href="#" class="instructor-nav-link flex items-center p-3 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors" onclick="showInstructorSection('analytics')">
+                                    <i class="fas fa-analytics mr-3"></i>
+                                    Relatórios
                                 </a>
                             </nav>
                         </div>
                     </div>
 
                     <!-- Main Content -->
-                    <div class="lg:col-span-3">
+                    <div class="col-span-1 lg:col-span-3">
                         <!-- Dashboard -->
                         <div id="instructor-dashboard" class="instructor-section">
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                                <div class="bg-white rounded-xl shadow-sm p-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mb-6 lg:mb-8">
+                                <div class="bg-white rounded-xl shadow-sm p-4 lg:p-6">
                                     <div class="flex items-center">
-                                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
-                                            <i class="fas fa-users text-blue-600"></i>
+                                        <div class="w-10 h-10 lg:w-12 lg:h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-3 lg:mr-4">
+                                            <i class="fas fa-users text-blue-600 text-lg lg:text-xl"></i>
                                         </div>
                                         <div>
-                                            <p class="text-2xl font-bold">347</p>
-                                            <p class="text-gray-600">Mecânicos Formados</p>
+                                            <p class="text-xl lg:text-2xl font-bold" id="total-students">347</p>
+                                            <p class="text-gray-600 text-sm lg:text-base">Mecânicos Formados</p>
                                         </div>
                                     </div>
                                 </div>
                                 
-                                <div class="bg-white rounded-xl shadow-sm p-6">
+                                <div class="bg-white rounded-xl shadow-sm p-4 lg:p-6">
                                     <div class="flex items-center">
-                                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
-                                            <i class="fas fa-book text-green-600"></i>
+                                        <div class="w-10 h-10 lg:w-12 lg:h-12 bg-green-100 rounded-lg flex items-center justify-center mr-3 lg:mr-4">
+                                            <i class="fas fa-book text-green-600 text-lg lg:text-xl"></i>
                                         </div>
                                         <div>
-                                            <p class="text-2xl font-bold">12</p>
-                                            <p class="text-gray-600">Cursos Ativos</p>
+                                            <p class="text-xl lg:text-2xl font-bold" id="active-courses">12</p>
+                                            <p class="text-gray-600 text-sm lg:text-base">Cursos Ativos</p>
                                         </div>
                                     </div>
                                 </div>
                                 
-                                <div class="bg-white rounded-xl shadow-sm p-6">
+                                <div class="bg-white rounded-xl shadow-sm p-4 lg:p-6 sm:col-span-2 lg:col-span-1">
                                     <div class="flex items-center">
-                                        <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mr-4">
-                                            <i class="fas fa-star text-yellow-600"></i>
+                                        <div class="w-10 h-10 lg:w-12 lg:h-12 bg-yellow-100 rounded-lg flex items-center justify-center mr-3 lg:mr-4">
+                                            <i class="fas fa-star text-yellow-600 text-lg lg:text-xl"></i>
                                         </div>
                                         <div>
-                                            <p class="text-2xl font-bold">4.8</p>
-                                            <p class="text-gray-600">Avaliação Média</p>
+                                            <p class="text-xl lg:text-2xl font-bold" id="avg-rating">4.8</p>
+                                            <p class="text-gray-600 text-sm lg:text-base">Avaliação Média</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="bg-white rounded-xl shadow-sm p-8">
-                                <h2 class="text-2xl font-semibold mb-6">Atividade Recente</h2>
-                                <div class="space-y-4">
-                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg">
-                                        <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center mr-4">
-                                            <i class="fas fa-user-plus text-white"></i>
-                                        </div>
-                                        <div>
-                                            <p class="font-medium">15 novos alunos inscritos</p>
-                                            <p class="text-sm text-gray-600">Marketing Digital Avançado</p>
-                                        </div>
+                            <!-- Recent Activity -->
+                            <div class="bg-white rounded-xl shadow-sm p-4 lg:p-8 mb-6">
+                                <h2 class="text-lg lg:text-2xl font-semibold mb-4 lg:mb-6">Atividade Recente</h2>
+                                <div class="space-y-3 lg:space-y-4" id="recent-activities">
+                                    <!-- Activities will be populated by JavaScript -->
+                                </div>
+                            </div>
+
+                            <!-- Quick Actions -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+                                <div class="bg-white rounded-xl shadow-sm p-4 lg:p-6">
+                                    <h3 class="text-lg font-semibold mb-4">Ações Rápidas</h3>
+                                    <div class="space-y-3">
+                                        <button class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors text-sm lg:text-base" onclick="showInstructorSection('upload')">
+                                            <i class="fas fa-plus mr-2"></i>Nova Aula
+                                        </button>
+                                        <button class="w-full border border-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors text-sm lg:text-base" onclick="showInstructorSection('courses')">
+                                            <i class="fas fa-edit mr-2"></i>Editar Curso
+                                        </button>
                                     </div>
-                                    <div class="flex items-center p-4 bg-gray-50 rounded-lg">
-                                        <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center mr-4">
-                                            <i class="fas fa-video text-white"></i>
+                                </div>
+                                
+                                <div class="bg-white rounded-xl shadow-sm p-4 lg:p-6">
+                                    <h3 class="text-lg font-semibold mb-4">Próximas Aulas</h3>
+                                    <div class="space-y-2 text-sm">
+                                        <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                                            <span>Diagnóstico de Motor</span>
+                                            <span class="text-blue-600">14:00</span>
                                         </div>
-                                        <div>
-                                            <p class="font-medium">Nova aula publicada</p>
-                                            <p class="text-sm text-gray-600">SEO para E-commerce</p>
+                                        <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                                            <span>Sistemas Elétricos</span>
+                                            <span class="text-blue-600">16:30</span>
                                         </div>
                                     </div>
                                 </div>
@@ -753,128 +830,53 @@
 
                         <!-- My Courses -->
                         <div id="instructor-courses" class="instructor-section hidden">
-                            <div class="bg-white rounded-xl shadow-sm p-8">
-                                <div class="flex justify-between items-center mb-6">
-                                    <h2 class="text-2xl font-semibold">Meus Cursos</h2>
-                                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                            <div class="bg-white rounded-xl shadow-sm p-4 lg:p-8">
+                                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+                                    <h2 class="text-lg lg:text-2xl font-semibold">Meus Cursos</h2>
+                                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm lg:text-base" onclick="createNewCourse()">
                                         <i class="fas fa-plus mr-2"></i>Novo Curso
                                     </button>
                                 </div>
                                 
-                                <div class="space-y-4">
-                                    <div class="border border-gray-200 rounded-lg p-6">
-                                        <div class="flex justify-between items-start">
-                                            <div>
-                                                <h3 class="text-lg font-semibold mb-2">Mecânica de Motor Completa</h3>
-                                                <p class="text-gray-600 mb-4">Curso abrangente sobre diagnóstico, reparação e manutenção de motores</p>
-                                                <div class="flex items-center space-x-4 text-sm text-gray-600">
-                                                    <span><i class="fas fa-users mr-1"></i>124 alunos</span>
-                                                    <span><i class="fas fa-star mr-1"></i>4.9 (45 avaliações)</span>
-                                                    <span><i class="fas fa-clock mr-1"></i>24h 30min</span>
-                                                </div>
-                                            </div>
-                                            <div class="flex space-x-2">
-                                                <button class="text-blue-600 hover:text-blue-800">
-                                                    <i class="fas fa-edit"></i>
-                                                </button>
-                                                <button class="text-green-600 hover:text-green-800">
-                                                    <i class="fas fa-chart-line"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="border border-gray-200 rounded-lg p-6">
-                                        <div class="flex justify-between items-start">
-                                            <div>
-                                                <h3 class="text-lg font-semibold mb-2">Sistemas Elétricos Automóveis</h3>
-                                                <p class="text-gray-600 mb-4">Diagnóstico e reparação de sistemas elétricos modernos</p>
-                                                <div class="flex items-center space-x-4 text-sm text-gray-600">
-                                                    <span><i class="fas fa-users mr-1"></i>89 alunos</span>
-                                                    <span><i class="fas fa-star mr-1"></i>4.8 (28 avaliações)</span>
-                                                    <span><i class="fas fa-clock mr-1"></i>18h 15min</span>
-                                                </div>
-                                            </div>
-                                            <div class="flex space-x-2">
-                                                <button class="text-blue-600 hover:text-blue-800">
-                                                    <i class="fas fa-edit"></i>
-                                                </button>
-                                                <button class="text-green-600 hover:text-green-800">
-                                                    <i class="fas fa-chart-line"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="space-y-4 lg:space-y-6" id="instructor-courses-list">
+                                    <!-- Courses will be populated by JavaScript -->
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Students -->
+                        <!-- Students Management -->
                         <div id="instructor-students" class="instructor-section hidden">
-                            <div class="bg-white rounded-xl shadow-sm p-8">
-                                <h2 class="text-2xl font-semibold mb-6">Gestão de Alunos</h2>
+                            <div class="bg-white rounded-xl shadow-sm p-4 lg:p-8">
+                                <h2 class="text-lg lg:text-2xl font-semibold mb-4 lg:mb-6">Gestão de Alunos</h2>
                                 
-                                <div class="mb-6">
-                                    <input type="text" placeholder="Pesquisar alunos..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <div class="mb-4 lg:mb-6">
+                                    <div class="relative">
+                                        <input type="text" id="student-search" placeholder="Pesquisar alunos..." 
+                                               class="w-full px-4 py-2 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm lg:text-base"
+                                               onkeyup="searchStudents()">
+                                        <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                                    </div>
                                 </div>
                                 
-                                <div class="overflow-x-auto">
-                                    <table class="w-full">
+                                <!-- Mobile Student Cards -->
+                                <div class="block lg:hidden space-y-4" id="mobile-students-list">
+                                    <!-- Mobile student cards will be populated by JavaScript -->
+                                </div>
+                                
+                                <!-- Desktop Table -->
+                                <div class="hidden lg:block overflow-x-auto">
+                                    <table class="w-full" id="students-table">
                                         <thead class="bg-gray-50">
                                             <tr>
                                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aluno</th>
                                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Curso</th>
                                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Progresso</th>
                                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Última Atividade</th>
+                                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ações</th>
                                             </tr>
                                         </thead>
-                                        <tbody class="bg-white divide-y divide-gray-200">
-                                            <tr>
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center mr-3">
-                                                            <span class="text-white font-medium">JS</span>
-                                                        </div>
-                                                        <div>
-                                                            <div class="text-sm font-medium text-gray-900">João Silva</div>
-                                                            <div class="text-sm text-gray-500">joao@email.com</div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Mecânica de Motor</td>
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <div class="w-16 bg-gray-200 rounded-full h-2 mr-2">
-                                                            <div class="bg-green-500 h-2 rounded-full" style="width: 75%"></div>
-                                                        </div>
-                                                        <span class="text-sm text-gray-600">75%</span>
-                                                    </div>
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Há 2 horas</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center mr-3">
-                                                            <span class="text-white font-medium">AS</span>
-                                                        </div>
-                                                        <div>
-                                                            <div class="text-sm font-medium text-gray-900">Ana Santos</div>
-                                                            <div class="text-sm text-gray-500">ana@email.com</div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Sistemas Elétricos</td>
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <div class="w-16 bg-gray-200 rounded-full h-2 mr-2">
-                                                            <div class="bg-green-500 h-2 rounded-full" style="width: 45%"></div>
-                                                        </div>
-                                                        <span class="text-sm text-gray-600">45%</span>
-                                                    </div>
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Há 1 dia</td>
-                                            </tr>
+                                        <tbody class="bg-white divide-y divide-gray-200" id="students-table-body">
+                                            <!-- Table rows will be populated by JavaScript -->
                                         </tbody>
                                     </table>
                                 </div>
@@ -883,49 +885,134 @@
 
                         <!-- Upload Content -->
                         <div id="instructor-upload" class="instructor-section hidden">
-                            <div class="bg-white rounded-xl shadow-sm p-8">
-                                <h2 class="text-2xl font-semibold mb-6">Upload de Conteúdo</h2>
+                            <div class="bg-white rounded-xl shadow-sm p-4 lg:p-8">
+                                <h2 class="text-lg lg:text-2xl font-semibold mb-4 lg:mb-6">Upload de Conteúdo</h2>
                                 
-                                <div class="space-y-6">
+                                <form class="space-y-4 lg:space-y-6" onsubmit="handleContentUpload(event)">
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700 mb-2">Título da Aula</label>
-                                        <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Ex: Introdução ao Google Ads">
+                                        <input type="text" id="lesson-title" required
+                                               class="w-full px-4 py-2 lg:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm lg:text-base" 
+                                               placeholder="Ex: Diagnóstico de Injetores Diesel">
                                     </div>
                                     
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700 mb-2">Descrição</label>
-                                        <textarea rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Descreva o conteúdo da aula..."></textarea>
+                                        <textarea rows="4" id="lesson-description" required
+                                                  class="w-full px-4 py-2 lg:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm lg:text-base" 
+                                                  placeholder="Descreva o conteúdo da aula e o que os alunos vão aprender..."></textarea>
                                     </div>
                                     
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Curso</label>
-                                        <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                                            <option>Selecione um curso</option>
-                                            <option>Marketing Digital Completo</option>
-                                            <option>SEO Avançado</option>
-                                            <option>Google Ads Masterclass</option>
-                                        </select>
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Curso</label>
+                                            <select id="lesson-course" required
+                                                    class="w-full px-4 py-2 lg:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm lg:text-base">
+                                                <option value="">Selecione um curso</option>
+                                                <option value="motor">Mecânica de Motor Completa</option>
+                                                <option value="eletrica">Sistemas Elétricos Automóveis</option>
+                                                <option value="chassis">Travões e Suspensão</option>
+                                                <option value="diagnostico">Diagnóstico por Computador</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Duração (minutos)</label>
+                                            <input type="number" id="lesson-duration" min="1" max="180" required
+                                                   class="w-full px-4 py-2 lg:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm lg:text-base" 
+                                                   placeholder="45">
+                                        </div>
                                     </div>
                                     
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700 mb-2">Upload de Vídeo</label>
-                                        <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-blue-400 transition-colors">
-                                            <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-4"></i>
-                                            <p class="text-gray-600 mb-2">Arraste o ficheiro de vídeo aqui ou</p>
-                                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                                                Selecionar Ficheiro
-                                            </button>
-                                            <p class="text-sm text-gray-500 mt-2">Formatos suportados: MP4, MOV, AVI (máx. 2GB)</p>
+                                        <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 lg:p-8 text-center hover:border-blue-400 transition-colors" 
+                                             id="upload-area" onclick="document.getElementById('video-file').click()">
+                                            <i class="fas fa-cloud-upload-alt text-3xl lg:text-4xl text-gray-400 mb-4"></i>
+                                            <p class="text-gray-600 mb-2 text-sm lg:text-base">Clique para selecionar o ficheiro de vídeo</p>
+                                            <p class="text-xs lg:text-sm text-gray-500">Formatos: MP4, MOV, AVI (máx. 500MB)</p>
+                                            <input type="file" id="video-file" accept="video/*" class="hidden" onchange="handleFileSelect(event)">
+                                            <div id="file-info" class="mt-4 hidden">
+                                                <div class="bg-blue-50 rounded-lg p-3">
+                                                    <p class="text-blue-700 font-medium" id="file-name"></p>
+                                                    <p class="text-blue-600 text-sm" id="file-size"></p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     
-                                    <div class="flex space-x-4">
-                                        <button class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                                    <div class="flex flex-col sm:flex-row gap-4">
+                                        <button type="submit" 
+                                                class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm lg:text-base">
                                             <i class="fas fa-upload mr-2"></i>Publicar Aula
                                         </button>
-                                        <button class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors">
-                                            Guardar Rascunho
+                                        <button type="button" onclick="saveDraft()"
+                                                class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors font-medium text-sm lg:text-base">
+                                            <i class="fas fa-save mr-2"></i>Guardar Rascunho
                                         </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Analytics Section -->
+                        <div id="instructor-analytics" class="instructor-section hidden">
+                            <div class="space-y-6">
+                                <!-- Revenue Chart -->
+                                <div class="bg-white rounded-xl shadow-sm p-4 lg:p-8">
+                                    <h2 class="text-lg lg:text-2xl font-semibold mb-4 lg:mb-6">Receitas Mensais (Kwanza)</h2>
+                                    <div class="h-64 lg:h-80 bg-gray-50 rounded-lg flex items-center justify-center">
+                                        <div class="text-center">
+                                            <i class="fas fa-chart-line text-4xl text-gray-400 mb-4"></i>
+                                            <p class="text-gray-600">Gráfico de receitas em desenvolvimento</p>
+                                            <p class="text-2xl font-bold text-green-600 mt-4">Kz 2.450.000</p>
+                                            <p class="text-sm text-gray-500">Este mês</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Performance Metrics -->
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="bg-white rounded-xl shadow-sm p-4 lg:p-6">
+                                        <h3 class="text-lg font-semibold mb-4">Cursos Mais Populares</h3>
+                                        <div class="space-y-3">
+                                            <div class="flex justify-between items-center">
+                                                <span class="text-sm">Mecânica de Motor</span>
+                                                <span class="text-sm font-medium">124 alunos</span>
+                                            </div>
+                                            <div class="flex justify-between items-center">
+                                                <span class="text-sm">Sistemas Elétricos</span>
+                                                <span class="text-sm font-medium">89 alunos</span>
+                                            </div>
+                                            <div class="flex justify-between items-center">
+                                                <span class="text-sm">Diagnóstico</span>
+                                                <span class="text-sm font-medium">67 alunos</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-white rounded-xl shadow-sm p-4 lg:p-6">
+                                        <h3 class="text-lg font-semibold mb-4">Taxa de Conclusão</h3>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <div class="flex justify-between mb-1">
+                                                    <span class="text-sm">Mecânica de Motor</span>
+                                                    <span class="text-sm">87%</span>
+                                                </div>
+                                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                                    <div class="bg-green-500 h-2 rounded-full" style="width: 87%"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="flex justify-between mb-1">
+                                                    <span class="text-sm">Sistemas Elétricos</span>
+                                                    <span class="text-sm">92%</span>
+                                                </div>
+                                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                                    <div class="bg-green-500 h-2 rounded-full" style="width: 92%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -944,7 +1031,7 @@
                 title: "Mecânica de Motor Completa",
                 description: "Domine todos os sistemas do motor: diagnóstico, reparação e manutenção",
                 category: "motor",
-                price: "€299",
+                price: "Kz 149.500",
                 rating: 4.9,
                 students: 347,
                 duration: "24h 30min",
@@ -955,7 +1042,7 @@
                 title: "Sistemas Elétricos Automóveis",
                 description: "Aprenda a diagnosticar e reparar sistemas elétricos modernos",
                 category: "eletrica",
-                price: "€249",
+                price: "Kz 124.500",
                 rating: 4.8,
                 students: 256,
                 duration: "18h 15min",
@@ -966,7 +1053,7 @@
                 title: "Travões e Suspensão",
                 description: "Especialização em sistemas de travagem e suspensão",
                 category: "chassis",
-                price: "€199",
+                price: "Kz 99.500",
                 rating: 4.7,
                 students: 184,
                 duration: "16h 45min",
@@ -977,7 +1064,7 @@
                 title: "Ar Condicionado Automóvel",
                 description: "Manutenção e reparação de sistemas de climatização",
                 category: "climatizacao",
-                price: "€179",
+                price: "Kz 89.500",
                 rating: 4.6,
                 students: 123,
                 duration: "12h 20min",
@@ -988,7 +1075,7 @@
                 title: "Diagnóstico por Computador",
                 description: "Utilização de equipamentos de diagnóstico modernos",
                 category: "diagnostico",
-                price: "€329",
+                price: "Kz 164.500",
                 rating: 4.9,
                 students: 298,
                 duration: "20h 30min",
@@ -999,7 +1086,7 @@
                 title: "Transmissão e Caixa de Velocidades",
                 description: "Reparação de transmissões manuais e automáticas",
                 category: "transmissao",
-                price: "€279",
+                price: "Kz 139.500",
                 rating: 4.8,
                 students: 167,
                 duration: "22h 10min",
@@ -1096,6 +1183,45 @@
             });
         }
 
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('mobile-menu-icon');
+            
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
+        }
+
+        // Instructor data
+        const instructorData = {
+            students: [
+                { id: 1, name: 'João Silva', email: 'joao@email.com', course: 'Mecânica de Motor', progress: 75, lastActivity: 'Há 2 horas', avatar: 'JS' },
+                { id: 2, name: 'Ana Santos', email: 'ana@email.com', course: 'Sistemas Elétricos', progress: 45, lastActivity: 'Há 1 dia', avatar: 'AS' },
+                { id: 3, name: 'Carlos Mendes', email: 'carlos@email.com', course: 'Diagnóstico', progress: 90, lastActivity: 'Há 3 horas', avatar: 'CM' },
+                { id: 4, name: 'Maria Costa', email: 'maria@email.com', course: 'Travões e Suspensão', progress: 60, lastActivity: 'Há 5 horas', avatar: 'MC' },
+                { id: 5, name: 'Pedro Alves', email: 'pedro@email.com', course: 'Mecânica de Motor', progress: 30, lastActivity: 'Há 2 dias', avatar: 'PA' }
+            ],
+            courses: [
+                { id: 1, title: 'Mecânica de Motor Completa', description: 'Curso abrangente sobre diagnóstico, reparação e manutenção de motores', students: 124, rating: 4.9, reviews: 45, duration: '24h 30min' },
+                { id: 2, title: 'Sistemas Elétricos Automóveis', description: 'Diagnóstico e reparação de sistemas elétricos modernos', students: 89, rating: 4.8, reviews: 28, duration: '18h 15min' },
+                { id: 3, title: 'Diagnóstico por Computador', description: 'Utilização de equipamentos de diagnóstico avançados', students: 67, rating: 4.9, reviews: 22, duration: '16h 45min' },
+                { id: 4, title: 'Travões e Suspensão', description: 'Especialização em sistemas de travagem e suspensão', students: 45, rating: 4.7, reviews: 15, duration: '14h 20min' }
+            ],
+            activities: [
+                { type: 'new-student', message: '8 novos alunos inscritos', detail: 'Mecânica de Motor Completa', time: 'Há 1 hora' },
+                { type: 'lesson-completed', message: 'Aula "Diagnóstico de Injetores" concluída', detail: '15 alunos completaram', time: 'Há 2 horas' },
+                { type: 'new-review', message: 'Nova avaliação 5 estrelas', detail: 'Sistemas Elétricos Automóveis', time: 'Há 4 horas' },
+                { type: 'milestone', message: '100º aluno formado este mês!', detail: 'Parabéns pelo marco', time: 'Há 1 dia' }
+            ]
+        };
+
         // Instructor area functions
         function showInstructorSection(sectionName) {
             // Hide all instructor sections
@@ -1106,14 +1232,344 @@
             // Show selected section
             document.getElementById(`instructor-${sectionName}`).classList.remove('hidden');
             
-            // Update navigation active state
+            // Update desktop navigation active state
             document.querySelectorAll('.instructor-nav-link').forEach(link => {
                 link.classList.remove('text-blue-600', 'bg-blue-50');
                 link.classList.add('text-gray-700');
             });
             
-            event.target.classList.remove('text-gray-700');
-            event.target.classList.add('text-blue-600', 'bg-blue-50');
+            // Update mobile navigation active state
+            document.querySelectorAll('.instructor-mobile-nav').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white');
+                btn.classList.add('text-gray-700');
+            });
+            
+            // Set active state for clicked element
+            if (event && event.target) {
+                if (event.target.classList.contains('instructor-nav-link')) {
+                    event.target.classList.remove('text-gray-700');
+                    event.target.classList.add('text-blue-600', 'bg-blue-50');
+                } else if (event.target.classList.contains('instructor-mobile-nav')) {
+                    event.target.classList.remove('text-gray-700');
+                    event.target.classList.add('bg-blue-600', 'text-white');
+                }
+            }
+            
+            // Load section-specific data
+            switch(sectionName) {
+                case 'dashboard':
+                    loadDashboardData();
+                    break;
+                case 'courses':
+                    loadInstructorCourses();
+                    break;
+                case 'students':
+                    loadStudentsData();
+                    break;
+            }
+        }
+
+        // Load dashboard data
+        function loadDashboardData() {
+            const activitiesContainer = document.getElementById('recent-activities');
+            activitiesContainer.innerHTML = '';
+            
+            instructorData.activities.forEach(activity => {
+                const activityElement = document.createElement('div');
+                activityElement.className = 'flex items-center p-3 lg:p-4 bg-gray-50 rounded-lg';
+                
+                let iconClass = 'fas fa-user-plus';
+                let iconColor = 'bg-blue-500';
+                
+                switch(activity.type) {
+                    case 'lesson-completed':
+                        iconClass = 'fas fa-check';
+                        iconColor = 'bg-green-500';
+                        break;
+                    case 'new-review':
+                        iconClass = 'fas fa-star';
+                        iconColor = 'bg-yellow-500';
+                        break;
+                    case 'milestone':
+                        iconClass = 'fas fa-trophy';
+                        iconColor = 'bg-purple-500';
+                        break;
+                }
+                
+                activityElement.innerHTML = `
+                    <div class="w-10 h-10 ${iconColor} rounded-full flex items-center justify-center mr-3 lg:mr-4">
+                        <i class="${iconClass} text-white"></i>
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-medium text-sm lg:text-base">${activity.message}</p>
+                        <p class="text-xs lg:text-sm text-gray-600">${activity.detail}</p>
+                    </div>
+                    <div class="text-xs lg:text-sm text-gray-500">${activity.time}</div>
+                `;
+                
+                activitiesContainer.appendChild(activityElement);
+            });
+        }
+
+        // Load instructor courses
+        function loadInstructorCourses() {
+            const coursesContainer = document.getElementById('instructor-courses-list');
+            coursesContainer.innerHTML = '';
+            
+            instructorData.courses.forEach(course => {
+                const courseElement = document.createElement('div');
+                courseElement.className = 'border border-gray-200 rounded-lg p-4 lg:p-6';
+                
+                courseElement.innerHTML = `
+                    <div class="flex flex-col lg:flex-row justify-between items-start gap-4">
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold mb-2">${course.title}</h3>
+                            <p class="text-gray-600 mb-4 text-sm lg:text-base">${course.description}</p>
+                            <div class="flex flex-wrap items-center gap-4 text-sm text-gray-600">
+                                <span><i class="fas fa-users mr-1"></i>${course.students} alunos</span>
+                                <span><i class="fas fa-star mr-1"></i>${course.rating} (${course.reviews} avaliações)</span>
+                                <span><i class="fas fa-clock mr-1"></i>${course.duration}</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-row lg:flex-col gap-2">
+                            <button class="text-blue-600 hover:text-blue-800 p-2 rounded-lg hover:bg-blue-50 transition-colors" onclick="editCourse(${course.id})">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="text-green-600 hover:text-green-800 p-2 rounded-lg hover:bg-green-50 transition-colors" onclick="viewAnalytics(${course.id})">
+                                <i class="fas fa-chart-line"></i>
+                            </button>
+                            <button class="text-gray-600 hover:text-gray-800 p-2 rounded-lg hover:bg-gray-50 transition-colors" onclick="manageLessons(${course.id})">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                coursesContainer.appendChild(courseElement);
+            });
+        }
+
+        // Load students data
+        function loadStudentsData() {
+            loadStudentsTable();
+            loadMobileStudentCards();
+        }
+
+        function loadStudentsTable() {
+            const tableBody = document.getElementById('students-table-body');
+            tableBody.innerHTML = '';
+            
+            instructorData.students.forEach(student => {
+                const row = document.createElement('tr');
+                row.className = 'student-row';
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-white font-medium text-sm">${student.avatar}</span>
+                            </div>
+                            <div>
+                                <div class="text-sm font-medium text-gray-900">${student.name}</div>
+                                <div class="text-sm text-gray-500">${student.email}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${student.course}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="w-16 bg-gray-200 rounded-full h-2 mr-2">
+                                <div class="bg-green-500 h-2 rounded-full" style="width: ${student.progress}%"></div>
+                            </div>
+                            <span class="text-sm text-gray-600">${student.progress}%</span>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${student.lastActivity}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm">
+                        <button class="text-blue-600 hover:text-blue-800 mr-2" onclick="contactStudent(${student.id})">
+                            <i class="fas fa-envelope"></i>
+                        </button>
+                        <button class="text-green-600 hover:text-green-800" onclick="viewStudentProgress(${student.id})">
+                            <i class="fas fa-chart-bar"></i>
+                        </button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        function loadMobileStudentCards() {
+            const mobileContainer = document.getElementById('mobile-students-list');
+            mobileContainer.innerHTML = '';
+            
+            instructorData.students.forEach(student => {
+                const card = document.createElement('div');
+                card.className = 'bg-gray-50 rounded-lg p-4 student-card';
+                card.innerHTML = `
+                    <div class="flex items-center mb-3">
+                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mr-3">
+                            <span class="text-white font-medium">${student.avatar}</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-medium text-gray-900">${student.name}</h4>
+                            <p class="text-sm text-gray-600">${student.email}</p>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-sm text-gray-600">${student.course}</span>
+                            <span class="text-sm font-medium">${student.progress}%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-green-500 h-2 rounded-full" style="width: ${student.progress}%"></div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">${student.lastActivity}</span>
+                        <div class="flex space-x-2">
+                            <button class="text-blue-600 hover:text-blue-800 p-1" onclick="contactStudent(${student.id})">
+                                <i class="fas fa-envelope"></i>
+                            </button>
+                            <button class="text-green-600 hover:text-green-800 p-1" onclick="viewStudentProgress(${student.id})">
+                                <i class="fas fa-chart-bar"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                mobileContainer.appendChild(card);
+            });
+        }
+
+        // Search students function
+        function searchStudents() {
+            const searchTerm = document.getElementById('student-search').value.toLowerCase();
+            
+            // Filter table rows
+            document.querySelectorAll('.student-row').forEach(row => {
+                const studentName = row.querySelector('.text-gray-900').textContent.toLowerCase();
+                const studentEmail = row.querySelector('.text-gray-500').textContent.toLowerCase();
+                
+                if (studentName.includes(searchTerm) || studentEmail.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+            
+            // Filter mobile cards
+            document.querySelectorAll('.student-card').forEach(card => {
+                const studentName = card.querySelector('.text-gray-900').textContent.toLowerCase();
+                const studentEmail = card.querySelector('.text-gray-600').textContent.toLowerCase();
+                
+                if (studentName.includes(searchTerm) || studentEmail.includes(searchTerm)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Content upload functions
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const fileInfo = document.getElementById('file-info');
+                const fileName = document.getElementById('file-name');
+                const fileSize = document.getElementById('file-size');
+                
+                fileName.textContent = file.name;
+                fileSize.textContent = `${(file.size / (1024 * 1024)).toFixed(2)} MB`;
+                fileInfo.classList.remove('hidden');
+            }
+        }
+
+        function handleContentUpload(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const title = document.getElementById('lesson-title').value;
+            const description = document.getElementById('lesson-description').value;
+            const course = document.getElementById('lesson-course').value;
+            const duration = document.getElementById('lesson-duration').value;
+            const videoFile = document.getElementById('video-file').files[0];
+            
+            if (!videoFile) {
+                alert('Por favor, selecione um ficheiro de vídeo.');
+                return;
+            }
+            
+            // Simulate upload process
+            const submitButton = event.target.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>A carregar...';
+            submitButton.disabled = true;
+            
+            setTimeout(() => {
+                alert(`Aula "${title}" publicada com sucesso!`);
+                event.target.reset();
+                document.getElementById('file-info').classList.add('hidden');
+                
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+                
+                // Update course count
+                const activeCourses = document.getElementById('active-courses');
+                activeCourses.textContent = parseInt(activeCourses.textContent) + 1;
+            }, 3000);
+        }
+
+        function saveDraft() {
+            const title = document.getElementById('lesson-title').value;
+            if (!title) {
+                alert('Por favor, insira pelo menos o título da aula.');
+                return;
+            }
+            
+            alert('Rascunho guardado com sucesso!');
+        }
+
+        // Course management functions
+        function createNewCourse() {
+            const courseName = prompt('Nome do novo curso:');
+            if (courseName) {
+                alert(`Curso "${courseName}" criado! Agora pode adicionar aulas na secção Upload.`);
+                loadInstructorCourses();
+            }
+        }
+
+        function editCourse(courseId) {
+            const course = instructorData.courses.find(c => c.id === courseId);
+            if (course) {
+                alert(`A editar curso: ${course.title}`);
+            }
+        }
+
+        function viewAnalytics(courseId) {
+            const course = instructorData.courses.find(c => c.id === courseId);
+            if (course) {
+                alert(`Relatórios para: ${course.title}\n\nAlunos: ${course.students}\nAvaliação: ${course.rating}\nTaxa de conclusão: 87%`);
+            }
+        }
+
+        function manageLessons(courseId) {
+            const course = instructorData.courses.find(c => c.id === courseId);
+            if (course) {
+                alert(`A gerir aulas do curso: ${course.title}`);
+            }
+        }
+
+        function contactStudent(studentId) {
+            const student = instructorData.students.find(s => s.id === studentId);
+            if (student) {
+                alert(`A contactar ${student.name} (${student.email})`);
+            }
+        }
+
+        function viewStudentProgress(studentId) {
+            const student = instructorData.students.find(s => s.id === studentId);
+            if (student) {
+                alert(`Progresso de ${student.name}:\n\nCurso: ${student.course}\nProgresso: ${student.progress}%\nÚltima atividade: ${student.lastActivity}`);
+            }
         }
 
         // Authentication functions
@@ -1247,5 +1703,5 @@
             showSection('home');
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'980bcb47b7176918',t:'MTc1ODE0NTU2My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'980bd4c0c5a103de',t:'MTc1ODE0NTk1MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
